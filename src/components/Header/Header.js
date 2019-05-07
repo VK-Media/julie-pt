@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 
+import './Header.scss'
+
 const Header = ({ pages, header }) => {
     const renderNavLinks = () => {
         return pages.map(page => {
@@ -14,7 +16,9 @@ const Header = ({ pages, header }) => {
     }
 
     return (
-        <header>
+        <header className="d-f jc-sb ai-c">
+            <NavLink id="main-logo" style={{backgroundImage: "url('http://localhost/cockpit-master/storage/uploads/2019/05/03/5ccc0e9c4f6c1march.png')"}} exact to="/"></NavLink>
+            <div id="toggle-menu"></div>
             <nav>{ renderNavLinks() }</nav>
         </header>
     )

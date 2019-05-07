@@ -17,9 +17,7 @@ class Routes extends Component {
 
     render = () => {
         return (
-            <div>
-                <Router>{ this.renderRoutes() }</Router>
-            </div>
+            <Router>{ this.renderRoutes() }</Router>
         )
     }
 }
