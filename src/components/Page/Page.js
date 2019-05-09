@@ -4,6 +4,7 @@ import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
 
 export default ({ page }) => {
+    console.log(page)
     return (
         <>
             <Header />
