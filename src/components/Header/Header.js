@@ -17,7 +17,7 @@ const Header = ({ pages, header, toggleMenu, showMenu }) => {
         })
     }
 
-    const headerClass = showMenu ? 'd-f jc-sb ai-c' : 'd-f jc-sb ai-c active'
+    const headerClass = showMenu ? 'd-f jc-sb ai-c active' : 'd-f jc-sb ai-c'
 
     return (
         <header className={ headerClass }>

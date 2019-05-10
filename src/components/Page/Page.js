@@ -2,17 +2,19 @@ import React from 'react'
 
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
+import Content from '../Content/Content'
 
 export default ({ page }) => {
-    console.log(page)
+    const renderContent = () => {
+        return page.content.map((content, i) => {
+            return <Content key={i} content={content} />
+        })
+    }
+
     return (
         <>
             <Header />
-
-            <main>
-                <h1>{page.title}</h1>
-            </main>
-            
+            <main>{ renderContent() }</main>
             <Footer />
         </>
     )
