@@ -5,11 +5,11 @@ const headers = {
 }
 
 export const collections = axios.create({
-    baseURL: 'http://localhost/cockpit-master/api/collections/get/',
+    baseURL: 'http://localhost/vk-cockpit/api/collections/get/',
     headers
 })
 
 export const singletons = axios.create({
-    baseURL: 'http://localhost/cockpit-master/api/singletons/get/',
+    baseURL: 'http://localhost/vk-cockpit/api/singletons/get/',
     headers
 })

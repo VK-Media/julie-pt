@@ -1,0 +1,33 @@
+.button {
+    display: flex;
+
+    > a {
+        display: block;
+        width: fit-content;
+        padding: 10px 20px;
+        border: none;
+        font-size: 14px;
+        color: #fafafa;
+        background-color: #FAAE58;
+        transition: background-color .4s;
+        box-shadow: 1px 1px 6px rgba(8, 8, 8, 0.3);
+        text-transform: uppercase;
+        -webkit-appearance: none;
+        text-decoration: none;
+        text-align: center;
+        margin: 20px;
+
+        &:hover {
+            cursor: pointer;
+            background-color: #f99626; 
+        }
+    }
+
+    &.center {
+        justify-content: center;
+    }
+
+    &.right {
+        justify-content: flex-end;
+    }
+}
