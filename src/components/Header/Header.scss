@@ -69,6 +69,16 @@ header {
     }
 }
 
+.landing-page {
+    header {
+        > div {
+            span {
+                background-color: white;
+            }
+        }
+    }
+}
+
 #main-logo {
     text-decoration: none;
     display: block;
