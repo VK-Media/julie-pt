@@ -6,7 +6,7 @@ import './Grid.scss'
 
 export default ({ content }) => {
     const columnCount = content.columns.length
-    const gridClass = `grid columns-${columnCount} p-lr-2`
+    const gridClass = `grid columns-${columnCount} component`
 
     const renderColumns = () => {
         return content.columns.map((column, i) => {

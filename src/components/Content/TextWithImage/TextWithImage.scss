@@ -1,0 +1,14 @@
+.text-with-image {
+    background-color: rgba(129, 153, 92, 0.55);
+    padding: 20px;
+    margin: 0 20px;
+    color: white;
+
+    .image {
+        margin: 0 -40px 20px;
+    }
+
+    .heading {
+        margin-bottom: 20px;
+    }
+}

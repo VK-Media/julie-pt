@@ -21,3 +21,13 @@ h5 {
 h6 {
     font-size: 1.1rem;
 }
+
+.heading {
+    &.center {
+        text-align: center;
+    }
+
+    &.right {
+        text-align: right;
+    }
+}

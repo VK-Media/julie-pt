@@ -19,3 +19,23 @@
     padding-left: 20px;
     padding-right: 20px;
 }
+
+.component {
+    padding: 20px;
+
+    .component {
+        padding: 0;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .component {
+        max-width: 1180px;
+        margin: 0 auto;
+
+        .component {
+            max-width: 100%;
+            margin: initial;
+        }
+    }
+}

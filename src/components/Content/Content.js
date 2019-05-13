@@ -7,16 +7,22 @@ import Text from './Text/Text'
 import Image from './Image/Image'
 import Gallery from './Gallery/Gallery.js'
 import Button from './Button/Button.js'
+import TextWithImage from './TextWithImage/TextWithImage'
+import GreenBg from './GreenBg/GreenBg'
 
 export default ({ content }) => {
-    console.log(content)
     switch (content.component) {
         case 'section':
-            const type = content.settings.type.toLowerCase()
+            const type = content.settings.type ? content.settings.type.toLowerCase() : null
 
             switch (type) {
                 case 'hero':
                     return <Hero content={content} />
+                case 'text-with-image':
+                    return <TextWithImage content={content} />
+                case 'green-bg':
+                    return <GreenBg content={content} />
+                case 'image-with-text':
                 default:
                     return null
             }
