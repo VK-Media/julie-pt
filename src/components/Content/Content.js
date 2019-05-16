@@ -10,9 +10,10 @@ import Button from './Button/Button.js'
 import TextWithImage from './TextWithImage/TextWithImage'
 import ImageWithText from './ImageWithText/ImageWithText'
 import GreenBg from './GreenBg/GreenBg'
+import Prices from './Prices/Prices'
 
 export default ({ content }) => {
-    switch (content.component) {
+    switch(content.component){
         case 'section':
             const type = content.settings.type ? content.settings.type.toLowerCase() : null
 
@@ -40,6 +41,8 @@ export default ({ content }) => {
             return <Gallery content={content} />
         case 'button':
             return <Button content={content} />
+        case 'prices':
+            return <Prices content={content} />
         default:
             return null
     }
