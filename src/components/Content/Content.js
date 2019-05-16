@@ -8,6 +8,7 @@ import Image from './Image/Image'
 import Gallery from './Gallery/Gallery.js'
 import Button from './Button/Button.js'
 import TextWithImage from './TextWithImage/TextWithImage'
+import ImageWithText from './ImageWithText/ImageWithText'
 import GreenBg from './GreenBg/GreenBg'
 
 export default ({ content }) => {
@@ -23,6 +24,7 @@ export default ({ content }) => {
                 case 'green-bg':
                     return <GreenBg content={content} />
                 case 'image-with-text':
+                    return <ImageWithText content={content} />
                 default:
                     return null
             }
