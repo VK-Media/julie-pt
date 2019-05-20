@@ -1,0 +1,43 @@
+.form-element {
+    position: relative;
+    margin-bottom: 20px;
+
+    label {
+        display: block;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    input,
+    textarea {
+        &:not([type=submit]) {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: none;
+            background-color: #fafafa;
+            transition: background-color .4s;
+            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    textarea {
+        height: 120px;
+        resize: none;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px 20px;
+        border: none;
+        font-size: 14px;
+        color: #fafafa;
+        background-color: #FAAE58;
+        transition: background-color .4s;
+        box-shadow: 1px 1px 6px rgba(8, 8, 8, 0.3);
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+    }
+}

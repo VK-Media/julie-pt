@@ -11,7 +11,6 @@ const Prices = ({ content, prices }) => {
 
         return content.settings.prices.map(priceItem => {
             const fullPrice = _.find(prices, price => price._id === priceItem._id)
-            console.log(fullPrice)
 
             if(fullPrice){
                 const className = fullPrice.onSale ? 'price campaign' : 'price'

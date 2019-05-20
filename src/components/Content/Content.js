@@ -11,6 +11,7 @@ import TextWithImage from './TextWithImage/TextWithImage'
 import ImageWithText from './ImageWithText/ImageWithText'
 import GreenBg from './GreenBg/GreenBg'
 import Prices from './Prices/Prices'
+import ContactForm from './ContactForm/ContactForm'
 
 export default ({ content }) => {
     switch(content.component){
@@ -43,6 +44,8 @@ export default ({ content }) => {
             return <Button content={content} />
         case 'prices':
             return <Prices content={content} />
+        case 'contactForm':
+            return <ContactForm content={content} />
         default:
             return null
     }
