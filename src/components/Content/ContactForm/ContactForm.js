@@ -5,7 +5,7 @@ import { forms } from '../../../apis/cms'
 
 import './ContactForm.scss'
 
-const ContactForm = ({ content, form }) => {
+const ContactForm = ({ content, handleSubmit, reset }) => {
     const nameLabel = content.settings.name
     const emailLabel = content.settings.email
     const subjectLabel = content.settings.subject
@@ -95,13 +95,20 @@ const ContactForm = ({ content, form }) => {
         )
     }
 
-    const handleSubmit = (values) => {
-        console.log(values)
+    const onSubmit = values => {
+        forms.post('contactForm', JSON.stringify({form: values}))
+            .then(entry => {
+                console.log('Success')
+                reset()
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     if(buttonLabel){
         return (
-            <form onSubmit={handleSubmit}>
+            <form className="component" onSubmit={handleSubmit(onSubmit)}>
                 {renderName()}
                 {renderEmail()}
                 {renderSubject()}

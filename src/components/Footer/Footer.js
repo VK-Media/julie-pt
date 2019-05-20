@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import './Footer.scss'
+
 const Footer = ({ footer }) => {
     const renderFooterContent = () => ({ __html: footer.content })
 

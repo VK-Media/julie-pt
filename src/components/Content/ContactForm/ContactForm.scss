@@ -10,14 +10,17 @@
 
     input,
     textarea {
-        &:not([type=submit]) {
-            width: 100%;
-            padding: 10px;
-            font-size: 14px;
-            border: none;
-            background-color: #fafafa;
-            transition: background-color .4s;
-            box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+        outline: none;
+        width: 100%;
+        padding: 10px;
+        font-size: 14px;
+        border: none;
+        background-color: #fafafa;
+        transition: background-color .4s;
+        box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+
+        &:focus {
+            background-color: #e1e1e1;
         }
     }
 
@@ -28,6 +31,7 @@
 
     button {
         width: 100%;
+        outline: none;
         padding: 10px 20px;
         border: none;
         font-size: 14px;
@@ -38,6 +42,11 @@
         text-transform: uppercase;
         text-decoration: none;
         text-align: center;
-        cursor: pointer;
+
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            background-color: #f99626;
+        }
     }
 }

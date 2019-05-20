@@ -18,5 +18,8 @@ export const singletons = axios.create({
 
 export const forms = axios.create({
     baseURL: base + 'api/forms/submit/',
-    headers
+    headers: {
+        ...headers, 
+        'Content-Type': 'application/json'
+    }
 })
