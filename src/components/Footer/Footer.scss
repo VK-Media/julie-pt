@@ -3,4 +3,30 @@ footer {
     text-align: center;
     color: #fafafa;
     padding: 20px;
+
+    .content {
+        margin-bottom: 20px;
+    }
+}
+
+#footer-logo {
+    text-decoration: none;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-bottom: 20px;
+}
+
+.some { 
+    a {
+        font-size: 40px;
+        color: #fafafa;
+        
+        &:not(:last-of-type) {
+            margin-right: 20px;
+        }
+    }
 }
