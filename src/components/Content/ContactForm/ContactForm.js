@@ -12,19 +12,37 @@ const ContactForm = ({ content, handleSubmit, reset }) => {
     const messageLabel = content.settings.message
     const buttonLabel = content.settings.button
 
+    const InputField = ({ input, type, placeholder, className, meta }) => {
+        const finalClass = meta.touched && meta.error ? className + ' error' : className
+
+        const renderInput = () => {
+            switch(type){
+                case 'textarea':
+                    return <textarea {...input} placeholder={placeholder} type={type} className={finalClass} />
+                default:
+                    return <input {...input} placeholder={placeholder} type={type} className={finalClass} />
+            }
+        }
+
+        return (
+            <div className="form-element">
+                <label htmlFor={input.id}>{placeholder}</label>
+                { renderInput() }
+                {meta.touched && meta.error && <span>{meta.error}</span>}
+            </div>
+        )
+    }
+
     const renderName = () => {
         if(nameLabel){
             return (
-                <div className="form-element">
-                    <label htmlFor="form-name">{nameLabel}</label>
-                    <Field
-                        id="form-name"
-                        name="name"
-                        component="input"
-                        type="text"
-                        placeholder={nameLabel}
-                    />
-                </div>
+                <Field
+                    id="form-name"
+                    name="name"
+                    component={InputField}
+                    type="text"
+                    placeholder={nameLabel}
+                />
             )
         }
 
@@ -34,16 +52,13 @@ const ContactForm = ({ content, handleSubmit, reset }) => {
     const renderEmail = () => {
         if (emailLabel) {
             return (
-                <div className="form-element">
-                    <label htmlFor="form-email">{emailLabel}</label>
-                    <Field
-                        id="form-email"
-                        name="email"
-                        component="input"
-                        type="email"
-                        placeholder={emailLabel}
-                    />
-                </div>
+                <Field
+                    id="form-email"
+                    name="email"
+                    component={InputField}
+                    type="email"
+                    placeholder={emailLabel}
+                />
             )
         }
 
@@ -53,16 +68,13 @@ const ContactForm = ({ content, handleSubmit, reset }) => {
     const renderSubject = () => {
         if (subjectLabel) {
             return (
-                <div className="form-element">
-                    <label htmlFor="form-subject">{subjectLabel}</label>
-                    <Field
-                        id="form-subject"
-                        name="subject"
-                        component="input"
-                        type="text"
-                        placeholder={subjectLabel}
-                    />
-                </div>
+                <Field
+                    id="form-subject"
+                    name="subject"
+                    component={InputField}
+                    type="text"
+                    placeholder={subjectLabel}
+                />
             )
         }
 
@@ -72,15 +84,13 @@ const ContactForm = ({ content, handleSubmit, reset }) => {
     const renderMessage = () => {
         if (messageLabel) {
             return (
-                <div className="form-element">
-                    <label htmlFor="form-message">{messageLabel}</label>
-                    <Field
-                        id="form-message"
-                        name="message"
-                        component="textarea"
-                        placeholder={messageLabel}
-                    />
-                </div>
+                <Field
+                    id="form-message"
+                    name="message"
+                    component={InputField}
+                    type="textarea"
+                    placeholder={messageLabel}
+                />
             )
         }
 
@@ -121,6 +131,29 @@ const ContactForm = ({ content, handleSubmit, reset }) => {
     return null
 }
 
+const validate = values => {
+    const errors = {}
+
+    if (!values.name) {
+        errors.name = 'Påkrævet'
+    }
+
+    if (!values.email) {
+        errors.email = 'Påkrævet'
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+        errors.email = 'Ugyldig email'
+    }
+
+    if (!values.message) {
+        errors.message = 'Påkrævet'
+    }
+
+    console.log(errors)
+
+    return errors
+}
+
 export default reduxForm({
-    form: 'contactForm'
+    form: 'contactForm',
+    validate
 })(ContactForm)

@@ -39,7 +39,7 @@ class Page extends Component {
 
                 <Header />
                 <main>{this.renderContent()}</main>
-                <Footer />
+                <Footer landingpage={this.props.page.landingpage} />
             </>
         )
     }

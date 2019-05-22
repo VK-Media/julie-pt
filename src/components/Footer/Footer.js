@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 
 import './Footer.scss'
 
-const Footer = ({ footer }) => {
+const Footer = ({ footer, landingpage }) => {
     const renderLogo = () => {
         const logoPath = footer.logo ? 'http://localhost' + footer.logo.path : null
         
@@ -40,11 +40,17 @@ const Footer = ({ footer }) => {
         )
     }
 
+    const renderVendor = () => {
+        if (landingpage) return <a className="vendor" href="https://vkmedia.dk" rel="noopener noreferrer" target="_blank">Lavet af VK Media</a>
+        return <p className="vendor">Lavet af VK Media</p>
+    }
+
     return (
         <footer>
             { renderLogo() }
             { renderContent() }
             { renderSome() }
+            { renderVendor() }
         </footer>
     )
 }
