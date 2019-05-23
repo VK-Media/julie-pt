@@ -10,12 +10,16 @@ class Page extends Component {
         if(this.props.page.landingpage){
             document.body.classList.add('landing-page')
         }
+
+        window.addEventListener('scroll', this.handleScroll);
     }
 
     componentWillUnmount = () => {
         if (this.props.page.landingpage) {
             document.body.classList.remove('landing-page')
         }
+
+        window.removeEventListener('scroll', this.handleScroll);
     }
 
     renderContent = () => {
@@ -37,6 +41,22 @@ class Page extends Component {
     renderOGImage = () => {
         if(this.props.page.seoImage.path){
             return <meta property="og:image" content={ 'http://localhost' + this.props.page.seoImage.path } />
+        }
+    }
+
+    handleScroll = event => {
+        const scrollTop = document.documentElement.scrollTop
+        const _class = 'scrolled'
+        const hasClass = document.body.classList.contains(_class)
+
+        if (scrollTop > 60) {
+            if(!hasClass) {
+                document.body.classList.add('scrolled')
+            }
+        } else {
+            if(hasClass) {
+                document.body.classList.remove('scrolled')
+            }
         }
     }
 
