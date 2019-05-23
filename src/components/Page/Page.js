@@ -29,12 +29,28 @@ class Page extends Component {
         return title + ' | Julie - personlig træner'
     }
 
+    renderPageUrl = () => {
+        const baseUrl = 'http://localhost/vk-cockpit/'
+        return baseUrl + this.props.page.title_slug
+    }
+
+    renderOGImage = () => {
+        if(this.props.page.seoImage.path){
+            return <meta property="og:image" content={ 'http://localhost' + this.props.page.seoImage.path } />
+        }
+    }
+
     render(){
         return (
             <>
                 <Helmet>
                     <title>{ this.renderPageTitle() }</title>
                     <meta name="description" content={ this.props.page.seoDescription } />
+                    <meta property="og:title" content={ this.renderPageTitle() } />
+                    <meta property="og:type" content="website" />
+                    <meta property="og:url" content={ this.renderPageUrl() } />
+                    <meta property="og:description" content={this.props.page.seoDescription } />
+                    { this.renderOGImage() }
                 </Helmet>
 
                 <Header />
