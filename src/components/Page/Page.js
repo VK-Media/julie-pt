@@ -6,8 +6,12 @@ import Footer from '../Footer/Footer'
 import Content from '../Content/Content'
 
 class Page extends Component {
+    state = {
+        isScrolled: false
+    }
+
     componentDidMount = () => {
-        if(this.props.page.landingpage){
+        if (this.props.page.landingpage) {
             document.body.classList.add('landing-page')
         }
 
@@ -39,8 +43,8 @@ class Page extends Component {
     }
 
     renderOGImage = () => {
-        if(this.props.page.seoImage.path){
-            return <meta property="og:image" content={ 'http://localhost' + this.props.page.seoImage.path } />
+        if (this.props.page.seoImage) {
+            return <meta property="og:image" content={'http://localhost' + this.props.page.seoImage.path} />
         }
     }
 
@@ -50,30 +54,32 @@ class Page extends Component {
         const hasClass = document.body.classList.contains(_class)
 
         if (scrollTop > 60) {
-            if(!hasClass) {
+            if (!hasClass) {
+                this.setState({ isScrolled: true })
                 document.body.classList.add('scrolled')
             }
         } else {
-            if(hasClass) {
+            if (hasClass) {
+                this.setState({ isScrolled: false })
                 document.body.classList.remove('scrolled')
             }
         }
     }
 
-    render(){
+    render() {
         return (
             <>
                 <Helmet>
-                    <title>{ this.renderPageTitle() }</title>
-                    <meta name="description" content={ this.props.page.seoDescription } />
-                    <meta property="og:title" content={ this.renderPageTitle() } />
+                    <title>{this.renderPageTitle()}</title>
+                    <meta name="description" content={this.props.page.seoDescription} />
+                    <meta property="og:title" content={this.renderPageTitle()} />
                     <meta property="og:type" content="website" />
-                    <meta property="og:url" content={ this.renderPageUrl() } />
-                    <meta property="og:description" content={this.props.page.seoDescription } />
-                    { this.renderOGImage() }
+                    <meta property="og:url" content={this.renderPageUrl()} />
+                    <meta property="og:description" content={this.props.page.seoDescription} />
+                    {this.renderOGImage()}
                 </Helmet>
 
-                <Header />
+                <Header isScrolled={this.state.isScrolled} landingpage={this.props.page.landingpage} />
                 <main>{this.renderContent()}</main>
                 <Footer landingpage={this.props.page.landingpage} />
             </>

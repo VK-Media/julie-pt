@@ -13,18 +13,6 @@ header {
                 background-color: white;
             }
         }
-
-        #overlay {
-            display: block;
-        }
-
-        nav {
-            display: block;
-
-            a {
-                right: 20px;
-            }
-        }
     }
 
     > div {
@@ -45,12 +33,22 @@ header {
     }
 
     nav {
-        display: none;
+        display: block;
         position: fixed;
         top: 50%;
         right: 0;
         z-index: 10;
         text-align: right;
+
+        &.exited {
+            display: none;
+        }
+
+        &.entered {
+            a {
+                right: 20px;
+            }
+        }
 
         a {
             display: block;
@@ -82,6 +80,12 @@ header {
 .scrolled {
     header {
         background-color: rgba(8, 8, 8, 0.4);
+
+        > div {
+            span {
+                background-color: white;
+            }
+        }
     }
 }
 
@@ -93,10 +97,12 @@ header {
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
+    position: relative;
+    z-index: 10;
 }
 
 #overlay {
-    display: none;
+    display: block;
     position: fixed;
     z-index: 9;
     top: 0;
@@ -104,4 +110,15 @@ header {
     width: 100%;
     height: 100vh;
     background-color: rgba(8, 8, 8, 0.4);
+    opacity: 0;
+    transition: opacity .4s;
+    cursor: initial;
+
+    &.exited {
+        display: none;
+    }
+
+    &.entered {
+        opacity: 1;
+    }
 }
