@@ -18,33 +18,34 @@ const Header = ({ pages, header, toggleMenu, showMenu, landingpage, isScrolled }
         })
     }
 
-    const renderLogoPath = () => {
+    const renderLogo = () => {
         const baseUrl = 'http://admin.julie-pt.dk/'
         let logoPath
 
         if (!landingpage) {
             if (isScrolled) {
-                logoPath = header.logoLight ? baseUrl + header.logoLight.path : null
+                logoPath = header.logoLight.path ? baseUrl + header.logoLight.path : null
             } else {
-                logoPath = header.logoDark ? baseUrl + header.logoDark.path : null
+                logoPath = header.logoDark.path ? baseUrl + header.logoDark.path : null
             }
         } else {
-            logoPath = header.logoLight ? baseUrl + header.logoLight.path : null
+            logoPath = header.logoLight.path ? baseUrl + header.logoLight.path : null
         }
 
         if (showMenu) {
-            logoPath = header.logoLight ? baseUrl + header.logoLight.path : null
+            logoPath = header.logoLight.path ? baseUrl + header.logoLight.path : null
         }
 
-        return logoPath
+        if(logoPath) return <NavLink id="main-logo" style={{ backgroundImage: "url(" + logoPath + ")" }} exact to="/"></NavLink>
 
+        return null
     }
 
     const headerClass = showMenu ? 'd-f jc-sb ai-c active' : 'd-f jc-sb ai-c'
 
     return (
         <header className={headerClass}>
-            <NavLink id="main-logo" style={{ backgroundImage: "url(" + renderLogoPath() + ")" }} exact to="/"></NavLink>
+            { renderLogo() }
             <div onClick={toggleMenu}><span></span><span></span><span></span></div>
             <Transition in={showMenu} timeout={200}>
                 {state => <nav className={state}>{renderNavLinks()}</nav>}
