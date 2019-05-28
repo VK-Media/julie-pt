@@ -38,13 +38,13 @@ class Page extends Component {
     }
 
     renderPageUrl = () => {
-        const baseUrl = 'http://admin.julie-pt.dk'
+        const baseUrl = 'http://admin.julie-pt.dk/'
         return baseUrl + this.props.page.title_slug
     }
 
     renderOGImage = () => {
         if (this.props.page.seoImage) {
-            return <meta property="og:image" content={'http://admin.julie-pt.dk' + this.props.page.seoImage.path} />
+            return <meta property="og:image" content={'http://admin.julie-pt.dk/' + this.props.page.seoImage.path} />
         }
     }
 
