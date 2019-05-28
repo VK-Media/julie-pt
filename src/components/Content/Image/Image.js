@@ -5,7 +5,7 @@ import './Image.scss'
 export default ({ content }) => {
 
     const renderImage = () => {
-        const imagePath = content.settings.image.path ? 'http://localhost' + content.settings.image.path : null
+        const imagePath = content.settings.image.path ? 'http://admin.julie-pt.dk' + content.settings.image.path : null
 
         if (imagePath) {
             const ratioArray = content.settings.ratio ? content.settings.ratio.split(':') : null

@@ -19,7 +19,7 @@ const Header = ({ pages, header, toggleMenu, showMenu, landingpage, isScrolled }
     }
 
     const renderLogoPath = () => {
-        const baseUrl = 'http://localhost'
+        const baseUrl = 'http://admin.julie-pt.dk'
         let logoPath
 
         if (!landingpage) {

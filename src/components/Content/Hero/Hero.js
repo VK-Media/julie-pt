@@ -11,7 +11,7 @@ export default ({ content }) => {
         const image = firstImage ? firstImage.settings.image : null
 
         if(image){
-            return 'http://localhost' + image.path
+            return 'http://admin.julie-pt.dk' + image.path
         }
 
         return null
