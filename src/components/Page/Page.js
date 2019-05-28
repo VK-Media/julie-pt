@@ -43,7 +43,7 @@ class Page extends Component {
     }
 
     renderOGImage = () => {
-        if (this.props.page.seoImage) {
+        if(this.props.page.seoImage){
             return <meta property="og:image" content={'http://admin.julie-pt.dk/' + this.props.page.seoImage.path} />
         }
     }
