@@ -24,16 +24,16 @@ const Header = ({ pages, header, toggleMenu, showMenu, landingpage, isScrolled }
 
         if (!landingpage) {
             if (isScrolled) {
-                logoPath = header.logoLight.path ? baseUrl + header.logoLight.path : null
+                logoPath = header.logoLight ? baseUrl + header.logoLight.path : null
             } else {
-                logoPath = header.logoDark.path ? baseUrl + header.logoDark.path : null
+                logoPath = header.logoDark ? baseUrl + header.logoDark.path : null
             }
         } else {
-            logoPath = header.logoLight.path ? baseUrl + header.logoLight.path : null
+            logoPath = header.logoLight ? baseUrl + header.logoLight.path : null
         }
 
         if (showMenu) {
-            logoPath = header.logoLight.path ? baseUrl + header.logoLight.path : null
+            logoPath = header.logoLight ? baseUrl + header.logoLight.path : null
         }
 
         if(logoPath) return <NavLink id="main-logo" style={{ backgroundImage: "url(" + logoPath + ")" }} exact to="/"></NavLink>
