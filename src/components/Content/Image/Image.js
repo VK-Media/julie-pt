@@ -1,4 +1,5 @@
 import React from 'react'
+import _ from 'lodash'
 
 import './Image.scss'
 
@@ -9,7 +10,7 @@ export default ({ content }) => {
 
         if (imagePath) {
             const ratioArray = content.settings.ratio ? content.settings.ratio.split(':') : null
-            const ratio = typeof ratioArray != 'null' ? parseInt(ratioArray[1]) / parseInt(ratioArray[0]) : 16 / 9
+            const ratio = !_.isEmpty(ratioArray) ? parseInt(ratioArray[1]) / parseInt(ratioArray[0]) : 16 / 9
             const title = content.settings.description ? content.settings.description : null
             const style = {
                 backgroundImage: `url('${imagePath}')`,
