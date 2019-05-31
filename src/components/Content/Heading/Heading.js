@@ -4,7 +4,7 @@ import './Heading.scss'
 
 export default ({ content, className }) => {
     const text = content.settings.text
-    const HeadingTag = content.settings.tag
+    const HeadingTag = content.settings.tag ? content.settings.tag : 'h1'
 
     const getClass = () => {
         let classes = 'component heading '
@@ -22,13 +22,7 @@ export default ({ content, className }) => {
         return classes
     }
 
-    if (text !== ''){
-        if (HeadingTag !== ''){
-            return <HeadingTag className={ getClass() }>{text}</HeadingTag>
-        } else {
-            return <h1 className="hero__content">{text}</h1>
-        }
-    }
+    if (text != '') return <HeadingTag className={ getClass() }>{text}</HeadingTag>
 
     return null
 }
