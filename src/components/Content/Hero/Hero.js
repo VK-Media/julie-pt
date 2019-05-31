@@ -10,9 +10,7 @@ export default ({ content }) => {
         const firstImage = _.find(content.children, child => child.component === 'image')
         const image = firstImage ? firstImage.settings.image : null
 
-        if(image){
-            return 'http://admin.julie-pt.dk/' + image.path
-        }
+        if(image) return 'http://admin.julie-pt.dk/' + image.path
 
         return null
     }
@@ -20,7 +18,9 @@ export default ({ content }) => {
     const getHeading = () => {
         const firstHeading = _.find(content.children, child => child.component === 'heading')
 
-        return <Heading className="hero__content" content={firstHeading} />
+        if(firstHeading) return <Heading className="hero__content" content={firstHeading} />
+
+        return null
     }
 
     return (
