@@ -1,6 +1,5 @@
 .image-with-text {
     position: relative;
-    padding: 40px;
     margin-bottom: 40px;
     overflow: hidden;
 
@@ -25,5 +24,11 @@
         position: relative;
         color: white;
         z-index: 1;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .image-with-text {
+        padding: 40px;
     }
 }

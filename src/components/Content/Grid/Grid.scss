@@ -2,18 +2,27 @@
     display: flex;
     justify-content: space-between;
 
-    &.columns-1 {
+    &.columns-1,
+    &.columns-2,
+    &.columns-3,
+    &.columns-4 {
         .grid__item {
-            width: 100%;
+            width: 100%;    
         }
     }
+}
 
-    &.columns-2 {
+@media screen and (min-width: 1024px) {
+    &.columns-2,
+    &.columns-3,
+    &.columns-4 {
         .grid__item {
             width: calc(100% / 2 - (20px / 2));
         }
     }
+}
 
+@media screen and (min-width: 1200px) {
     &.columns-3 {
         .grid__item {
             width: calc(100% / 3 - (20px * 2 / 3));
