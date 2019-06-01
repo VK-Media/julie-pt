@@ -39,11 +39,14 @@ footer {
     margin-bottom: 40px;
     
     a {
-        font-size: 40px;
         color: #fafafa;
         
         &:not(:last-of-type) {
             margin-right: 20px;
+        }
+        
+        i {
+            font-size: 40px;
         }
     }
 }
