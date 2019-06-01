@@ -1,13 +1,15 @@
 .grid {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 
     &.columns-1,
     &.columns-2,
     &.columns-3,
     &.columns-4 {
         .grid__item {
-            width: 100%;    
+            width: 100%;
+            margin-bottom: 20px;
         }
     }
 }
