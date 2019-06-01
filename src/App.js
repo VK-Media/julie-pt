@@ -14,8 +14,14 @@ class App extends Component {
     }
 
     render() {
-        return <Routes />
+        return this.props.pages ? <Routes /> : null
     }
 }
 
-export default connect(null, { fetchPages, fetchHeader, fetchFooter, fetchPrices })(App)
+const mapStateToProps = state => {
+    return {
+        pages: state.pages
+    }
+}
+
+export default connect(mapStateToProps, { fetchPages, fetchHeader, fetchFooter, fetchPrices })(App)
