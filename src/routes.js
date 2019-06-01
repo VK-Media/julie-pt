@@ -17,7 +17,10 @@ class Routes extends Component {
 
     render = () => {
         return (
-            <Router>{ this.renderRoutes() }</Router>
+            <Router>
+                { this.renderRoutes() }
+                return <Route path="/om-mig" exact render={() => <div>Test</div>} />
+            </Router>
         )
     }
 }
