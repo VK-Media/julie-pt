@@ -20,7 +20,7 @@
         &.columns-3,
         &.columns-4 {
             .grid__item {
-                width: calc(100% / 2 - (20px / 2));
+                width: calc(100% / 2 - 40px);
             }
         }
     }
@@ -30,13 +30,13 @@
     .grid {
         &.columns-3 {
             .grid__item {
-                width: calc(100% / 3 - (20px * 2 / 3));
+                width: calc(100% / 3 - 40px);
             }
         }
         
         &.columns-4 {
             .grid__item {
-                width: calc(100% / 4 - (20px * 3 / 4));
+                width: calc(100% / 4 - 40px);
             }
         }
     }
