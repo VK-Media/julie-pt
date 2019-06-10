@@ -39,6 +39,7 @@ header {
         right: 0;
         z-index: 10;
         text-align: right;
+        transform: translateY(-50%);
 
         &.exited {
             display: none;
