@@ -10,6 +10,19 @@
         padding: 20px;
         width: 100%;
 
+        &.button {
+            position: relative;
+            padding-bottom: 80px;
+
+            .button {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                margin: 0;
+                bottom: 20px;
+            }
+        }
+
         h3 {
             font-size: 24px;
             margin-bottom: 20px;
@@ -49,7 +62,6 @@
                 -webkit-appearance: none;
                 text-decoration: none;
                 text-align: center;
-                margin: 20px auto;
 
                 &:hover {
                     cursor: pointer;

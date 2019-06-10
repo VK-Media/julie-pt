@@ -13,7 +13,15 @@ const Prices = ({ content, prices }) => {
             const fullPrice = _.find(prices, price => price._id === priceItem._id)
 
             if(fullPrice){
-                const className = fullPrice.onSale ? 'price campaign' : 'price'
+                let classes = ['price']
+
+                if(fullPrice.onSale){
+                    classes.push('campaign')
+                }
+
+                if(renderButton()){
+                    classes.push('button');
+                }
 
                 const renderButton = () => {
                     if(fullPrice.buttonText){
@@ -32,7 +40,7 @@ const Prices = ({ content, prices }) => {
                 }
 
                 return (
-                    <div key={fullPrice._id} className={className} >
+                    <div key={fullPrice._id} className={classes.join(' ')} >
                         <h3>{fullPrice.name}</h3>
                         <div className="teaser" dangerouslySetInnerHTML={{ __html: fullPrice.teaser }}></div>
                         <h4>{fullPrice.defaultPrice}</h4>
