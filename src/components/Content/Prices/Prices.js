@@ -36,7 +36,7 @@ const Prices = ({ content, prices }) => {
                 }
                 
                 if(renderButton()){
-                    classes.push('button');
+                    classes.push('has-button');
                 }
 
                 return (
