@@ -19,24 +19,24 @@ const Prices = ({ content, prices }) => {
                     classes.push('campaign')
                 }
 
-                if(renderButton()){
-                    classes.push('button');
-                }
-
                 const renderButton = () => {
                     if(fullPrice.buttonText){
                         const renderLink = () => {
                             if(fullPrice.buttonLink){
                                 return null
                             }
-
+                            
                             return <NavLink exact to={'/' + fullPrice.name_slug}>{fullPrice.name}</NavLink>
                         }
-
+                        
                         return <div className="button">{renderLink()}</div>
                     }
-
+                    
                     return null
+                }
+                
+                if(renderButton()){
+                    classes.push('button');
                 }
 
                 return (
