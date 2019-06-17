@@ -1,12 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import _ from 'lodash'
 
 import './Button.scss'
 
-const Button = ({ content }) => {
+const Button = ({ content, pages }) => {
     const text = content.settings.text
     const url = content.settings.url
-    const page = content.settings.link
+    const linkedPage = content.settings.link
+    let page = null
     const asset = content.settings.download
     const target = content.settings.target ? content.settings.target : '_top'
     let className = ['button']
@@ -15,11 +17,14 @@ const Button = ({ content }) => {
         className.push(content.settings.alignment.toLowerCase())
     }
 
+    if (linkedPage !== ''){
+        page = _.find(pages, page => page._id === linkedPage._id)
+    }
+
     if(text !== ''){
         if(url !== ''){
             return <div className={className.join(' ')}><a href={url} target={target}>{text}</a></div>
-        } else if(page !== ''){
-            console.log(page);
+        } else if(page){
             return <div className={className.join(' ')}><a href={page.title_slug} target={target}>{text}</a></div>
         } else if(asset !== ''){
             console.log(asset)
