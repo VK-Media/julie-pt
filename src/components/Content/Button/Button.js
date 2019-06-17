@@ -17,12 +17,8 @@ const Button = ({ content, pages }) => {
         className.push(content.settings.alignment.toLowerCase())
     }
 
-    if (linkedPage !== ''){
-        page = _.find(pages, current => {
-            console.log(current)
-            console.log(linkedPage)
-            return current._id === linkedPage._id
-        })
+    if (!_.isEmpty(linkedPage)){
+        page = _.find(pages, current => current._id === linkedPage._id)
     }
 
     if(text !== ''){
