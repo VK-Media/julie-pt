@@ -22,7 +22,7 @@ const Button = ({ content }) => {
             return <div className={className.join(' ')}><a href={page.title_slug} target={target}>{text}</a></div>
         } else if(asset !== ''){
             console.log(asset)
-            return <div className={className.join(' ')}><a href={} download target={target}>{text}</a></div>
+            return <div className={className.join(' ')}><a href="https://google.dk" download target={target}>{text}</a></div>
         }
     }
 
