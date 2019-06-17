@@ -29,7 +29,7 @@ const Button = ({ content, pages }) => {
             return <div className={className.join(' ')}><Link to={page.title_slug} target={target}>{text}</Link></div>
         } else if(!_.isEmpty(asset)){
             const assetLink = `/storage/uploads${asset.path}`
-            return <div className={className.join(' ')}><a href={assetLink} download target={target}>{text}</a></div>
+            return <div className={className.join(' ')}><a href={assetLink} target="_blank">{text}</a></div>
         }
     }
 
