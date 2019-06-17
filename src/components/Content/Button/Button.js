@@ -19,6 +19,7 @@ const Button = ({ content }) => {
         if(url !== ''){
             return <div className={className.join(' ')}><a href={url} target={target}>{text}</a></div>
         } else if(page !== ''){
+            console.log(page);
             return <div className={className.join(' ')}><a href={page.title_slug} target={target}>{text}</a></div>
         } else if(asset !== ''){
             console.log(asset)
