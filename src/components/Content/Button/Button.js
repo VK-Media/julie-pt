@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 import _ from 'lodash'
 
 import './Button.scss'
@@ -23,12 +24,12 @@ const Button = ({ content, pages }) => {
 
     if(text !== ''){
         if(url !== ''){
-            return <div className={className.join(' ')}><a href={url} target={target}>{text}</a></div>
+            return <div className={className.join(' ')}><Link to={url} target={target}>{text}</Link></div>
         } else if(page){
-            return <div className={className.join(' ')}><a href={page.title_slug} target={target}>{text}</a></div>
-        } else if(asset !== ''){
-            console.log(asset)
-            return <div className={className.join(' ')}><a href="https://google.dk" download target={target}>{text}</a></div>
+            return <div className={className.join(' ')}><Link to={page.title_slug} target={target}>{text}</Link></div>
+        } else if(!_.isEmpty(asset)){
+            const assetLink = `/storage/uploads${asset.path}`
+            return <div className={className.join(' ')}><a href={assetLink} download target={target}>{text}</a></div>
         }
     }
 
