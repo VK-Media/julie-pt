@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import Transition from 'react-transition-group/Transition'
+import _ from 'lodash'
 
 import './Header.scss'
 
@@ -9,13 +10,19 @@ import { toggleMenu } from '../../actions/'
 
 const Header = ({ pages, header, toggleMenu, showMenu, landingpage, isScrolled }) => {
     const renderNavLinks = () => {
-        return pages.map(page => {
-            if (page.showInMenu && !page.landingpage) {
-                return <NavLink onClick={toggleMenu} key={page._id} activeClassName="active" exact to={'/' + page.title_slug}>{page.title}</NavLink>
-            }
+        if(!_.isEmpty(header.menu)){
+            return header.menu.map(page => {
+                const fullPage = _.find(pages, statePage => statePage._id === page._id)
 
-            return null
-        })
+                if(!_.isEmpty(fullPage)){
+                    return <NavLink onClick={toggleMenu} key={fullPage._id} activeClassName="active" exact to={'/' + fullPage.title_slug}>{fullPage.title}</NavLink>
+                }
+
+                return null
+            })
+        }
+
+        return null
     }
 
     const renderLogo = () => {
