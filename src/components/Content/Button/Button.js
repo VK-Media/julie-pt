@@ -18,6 +18,7 @@ const Button = ({ content, pages }) => {
     }
 
     if (linkedPage !== ''){
+        console.log(pages);
         page = _.find(pages, page => page._id === linkedPage._id)
     }
 
