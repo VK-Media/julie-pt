@@ -28,7 +28,7 @@ const Button = ({ content, pages }) => {
         } else if(page){
             return <div className={className.join(' ')}><Link to={page.title_slug} target={target}>{text}</Link></div>
         } else if(!_.isEmpty(asset)){
-            const assetLink = `/storage/uploads${asset.path}`
+            const assetLink = `http://admin.julie-pt.dk/storage/uploads${asset.path}`
             return <div className={className.join(' ')}><a href={assetLink} target="_blank">{text}</a></div>
         }
     }
