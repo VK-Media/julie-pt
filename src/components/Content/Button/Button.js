@@ -22,7 +22,7 @@ const Button = ({ content, pages }) => {
         page = _.find(pages, current => current._id === linkedPage._id)
     }
 
-    if(text !== ''){
+    if(text){
         if(url){
             return <div className={className.join(' ')}><Link to={url} target={target}>{text}</Link></div>
         } else if(page){
