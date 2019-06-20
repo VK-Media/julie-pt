@@ -23,7 +23,7 @@ const Button = ({ content, pages }) => {
     }
 
     if(text !== ''){
-        if(url !== '' || typeof url !== 'null'){
+        if(url){
             return <div className={className.join(' ')}><Link to={url} target={target}>{text}</Link></div>
         } else if(page){
             return <div className={className.join(' ')}><Link to={page.title_slug} target={target}>{text}</Link></div>
