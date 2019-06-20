@@ -20,19 +20,10 @@ const Prices = ({ content, prices }) => {
                 }
 
                 const renderButton = () => {
-                    if(fullPrice.buttonText){
-                        const renderLink = () => {
-                            if(fullPrice.buttonLink){
-                                return null
-                            }
-                            
-                            return <NavLink exact to={'/' + fullPrice.name_slug}>{fullPrice.name}</NavLink>
-                        }
+                    const buttonText = fullPrice.buttonText ? fullPrice.buttonText : fullPrice.name;
+                    const buttonLink = fullPrice.buttonLink ? fullPrice.buttonLink : `/${fullPrice.name_slug}`;
                         
-                        return <div className="button">{renderLink()}</div>
-                    }
-                    
-                    return null
+                    return <div className="button"><NavLink exact to={buttonLink}>{buttonText}</NavLink></div>
                 }
                 
                 if(renderButton()){
