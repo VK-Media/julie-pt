@@ -10,7 +10,7 @@ export default ({ content }) => {
         const firstImage = _.find(content.children, child => child.component === 'image')
         const image = firstImage ? firstImage.settings.image : null
 
-        if(image) return 'http://admin.julie-pt.dk/' + image.path
+        if(image) return 'https://admin.julie-pt.dk/' + image.path
 
         return null
     }

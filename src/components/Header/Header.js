@@ -26,7 +26,7 @@ const Header = ({ pages, header, toggleMenu, showMenu, landingpage, isScrolled }
     }
 
     const renderLogo = () => {
-        const baseUrl = 'http://admin.julie-pt.dk/'
+        const baseUrl = 'https://admin.julie-pt.dk/'
         let logoPath
 
         if (!landingpage) {

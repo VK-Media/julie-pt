@@ -6,7 +6,7 @@ import './Footer.scss'
 
 const Footer = ({ footer, landingpage }) => {
     const renderLogo = () => {
-        const logoPath = footer.logo ? 'http://admin.julie-pt.dk/' + footer.logo.path : null
+        const logoPath = footer.logo ? 'https://admin.julie-pt.dk/' + footer.logo.path : null
         
         if(logoPath){
             return <NavLink id="footer-logo" style={{ backgroundImage: "url(" + logoPath + ")" }} exact to="/"></NavLink>
