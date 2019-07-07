@@ -36,6 +36,7 @@ class Page extends Component {
     }
 
     renderPageTitle = () => {
+        console.log(this.props.page)
         const title = this.props.page.seoTitle ? this.props.page.seoTitle : this.props.page.title
         return title + ' | Julie - personlig træner'
     }
