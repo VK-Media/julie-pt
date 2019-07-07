@@ -11,9 +11,9 @@ const Prices = ({ content, prices, pages }) => {
 
         return content.settings.prices.map(priceItem => {
             const fullPrice = _.find(prices, price => price._id === priceItem._id)
-            const linkedPage = fullPrice.buttonLink
-
+            
             if(fullPrice){
+                const linkedPage = fullPrice.buttonLink
                 let classes = ['price']
 
                 if(fullPrice.onSale){
