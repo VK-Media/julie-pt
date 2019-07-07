@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import ReactGA from 'react-ga'
 
 import { fetchPages, fetchHeader, fetchFooter, fetchPrices } from './actions'
 import './App.scss'
@@ -12,8 +11,6 @@ class App extends Component {
         this.props.fetchHeader()
         this.props.fetchFooter()
         this.props.fetchPrices()
-
-        ReactGA.initialize('UA-143417544-1')
     }
 
     render() {
