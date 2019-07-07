@@ -22,7 +22,7 @@ export default ({ content, className }) => {
         return classes
     }
 
-    if (text != '') return <HeadingTag className={ getClass() }>{text}</HeadingTag>
+    if (text !== '') return <HeadingTag className={ getClass() }>{text}</HeadingTag>
 
     return null
 }
