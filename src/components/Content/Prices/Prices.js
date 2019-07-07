@@ -5,7 +5,7 @@ import _ from 'lodash'
 
 import './Prices.scss'
 
-const Prices = ({ content, prices }) => {
+const Prices = ({ content, prices, pages }) => {
     const renderPrices = () => {
         if(!content.settings.prices) return null
 
