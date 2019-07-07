@@ -11,6 +11,7 @@ const Prices = ({ content, prices }) => {
 
         return content.settings.prices.map(priceItem => {
             const fullPrice = _.find(prices, price => price._id === priceItem._id)
+            const linkedPage = fullPrice.buttonLink
 
             if(fullPrice){
                 let classes = ['price']
@@ -20,10 +21,18 @@ const Prices = ({ content, prices }) => {
                 }
 
                 const renderButton = () => {
-                    const buttonText = fullPrice.buttonText ? fullPrice.buttonText : fullPrice.name;
-                    const buttonLink = fullPrice.buttonLink ? fullPrice.buttonLink : `/${fullPrice.name_slug}`;
-                        
-                    return <div className="button"><NavLink exact to={buttonLink}>{buttonText}</NavLink></div>
+                    const buttonText = fullPrice.buttonText ? fullPrice.buttonText : fullPrice.name
+                    let page = null
+
+                    if (!_.isEmpty(linkedPage)) {
+                        page = _.find(pages, current => current._id === linkedPage._id)
+                    }
+
+                    if(buttonText && page){
+                        return <div className="button"><NavLink exact to={page.title_slug}>{buttonText}</NavLink></div>
+                    }
+
+                    return null                        
                 }
                 
                 if(renderButton()){
@@ -53,7 +62,8 @@ const Prices = ({ content, prices }) => {
 
 const mapStateToProps = state => {
     return {
-        prices: state.prices
+        prices: state.prices,
+        pages: state.pages
     }
 }
 
