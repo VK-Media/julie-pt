@@ -9,11 +9,11 @@ export default ({ content }) => {
 		<section className="recipe-details">
 			<div className="icons">
 				<div>
-					<i className="far fa-utensils fa-2x" />
+					<i className="fas fa-utensils fa-3x" />
 					<p>{content.settings.portions}</p>
 				</div>
 				<div>
-					<i className="far fa-clock" />
+					<i className="fas fa-clock fa-3x" />
 					<p>{content.settings.preparationTime}</p>
 				</div>
 			</div>
