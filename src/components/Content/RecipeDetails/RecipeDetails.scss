@@ -1,6 +1,6 @@
 .recipe-details {
 	padding: 20px;
-	background-color: lighten(#81995c, 15%);
+	background-color: lighten(#81995c, 20%);
 	margin-bottom: 40px;
 
 	.icons {
@@ -13,6 +13,14 @@
 			&:first-of-type {
 				margin-right: 40px;
 			}
+		}
+
+		i {
+			margin-bottom: 5px;
+		}
+
+		p {
+			font-weight: 700;
 		}
 	}
 
