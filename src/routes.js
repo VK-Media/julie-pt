@@ -32,7 +32,7 @@ class Routes extends Component {
 			return (
 				<Route
 					key={recipe._id}
-					path="/"
+					path={"/" + recipe.title_slug}
 					exact
 					render={() => <Page page={recipe} />}
 				/>

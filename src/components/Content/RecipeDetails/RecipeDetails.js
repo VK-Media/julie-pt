@@ -8,10 +8,7 @@ export default ({ content }) => {
 	return (
 		<section className="recipe-details">
 			<div className="icons" />
-			<div className="details">
-				<div />
-				<div />
-			</div>
+			<div className="details" />
 		</section>
 	);
 };
