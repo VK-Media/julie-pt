@@ -6,6 +6,7 @@
 	.icons {
 		display: flex;
 		justify-content: center;
+		margin-bottom: 40px;
 
 		div {
 			text-align: center;
@@ -27,9 +28,10 @@
 	.details {
 		display: flex;
 		justify-content: space-between;
+		flex-wrap: wrap;
 
 		div {
-			width: 45%;
+			width: 100%;
 		}
 	}
 
@@ -45,5 +47,11 @@
 		padding: 40px;
 		max-width: 1140px;
 		margin: 0 auto 40px;
+	}
+
+	.details {
+		div {
+			width: 45%;
+		}
 	}
 }
