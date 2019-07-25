@@ -9,23 +9,23 @@ export default ({ content }) => {
 		<section className="recipe-details">
 			<div className="icons">
 				<div>
-					<i class="fas fa-utensils fa-2x" />
-					<p>{content.portions}</p>
+					<i className="far fa-utensils fa-2x" />
+					<p>{content.settings.portions}</p>
 				</div>
 				<div>
-					<i class="fas fa-clock" />
-					<p>{content.preparationTime}</p>
+					<i className="far fa-clock" />
+					<p>{content.settings.preparationTime}</p>
 				</div>
 			</div>
 			<div className="details">
 				<div
 					dangerouslySetInnerHTML={{
-						__html: content.ingredients
+						__html: content.settings.ingredients
 					}}
 				/>
 				<div
 					dangerouslySetInnerHTML={{
-						__html: content.method
+						__html: content.settings.method
 					}}
 				/>
 			</div>
