@@ -1,0 +1,24 @@
+.recipe-details {
+	padding: 20px;
+	background-color: #81995c;
+
+	.icons {
+		display: flex;
+		justify-content: center;
+
+		div {
+			&:first-of-type {
+				margin-right: 40px;
+			}
+		}
+	}
+
+	.details {
+		display: flex;
+		justify-content: space-between;
+
+		div {
+			width: 45%;
+		}
+	}
+}
