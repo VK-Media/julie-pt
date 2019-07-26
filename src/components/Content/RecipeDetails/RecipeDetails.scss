@@ -1,7 +1,7 @@
 .recipe-details {
 	padding: 20px;
 	background-color: lighten(#81995c, 20%);
-	margin-bottom: 40px;
+	margin: 20px;
 
 	.icons {
 		display: flex;
@@ -30,7 +30,7 @@
 		justify-content: space-between;
 		flex-wrap: wrap;
 
-		div {
+		> div {
 			width: 100%;
 		}
 	}
@@ -42,16 +42,18 @@
 	}
 }
 
+@media screen and (min-width: 1024px) {
+	.details {
+		> div {
+			width: 45%;
+		}
+	}
+}
+
 @media screen and (min-width: 1200px) {
 	.recipe-details {
 		padding: 40px;
 		max-width: 1140px;
 		margin: 0 auto 40px;
-	}
-
-	.details {
-		div {
-			width: 45%;
-		}
 	}
 }
