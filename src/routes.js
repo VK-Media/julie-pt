@@ -1,60 +1,62 @@
-import React, { Component } from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import { connect } from "react-redux";
-
+import { useDispatch, useSelector } from "react-redux";
 import Page from "./components/Page/Page";
+import { addRoutes } from "./actions";
 
-class Routes extends Component {
-	renderRoutes = () => {
-		const pageRoutes = this.props.pages.map(page => {
-			if (page.landingpage) {
+const Routes = () => {
+	const dispatch = useDispatch();
+	const pages = useSelector(state => state.pages);
+	const recipes = useSelector(state => state.recipes);
+	const routes = useSelector(state => state.routes);
+
+	useEffect(() => {
+		const pagesRoutes = pages.map(page => {
+			page.path = `/${page.title_slug}`;
+
+			return page;
+		});
+
+		const recipesRoutes = recipes.map(recipe => {
+			recipe.path = `/opskrifter/${recipe.title_slug}`;
+
+			return recipe;
+		});
+
+		const routes = pagesRoutes.concat(recipesRoutes);
+
+		dispatch(addRoutes(routes));
+	}, [pages, recipes, dispatch]);
+
+	const renderRoutes = () => {
+		return routes.map(route => {
+			if (route) {
+				if (route.landingpage) {
+					return (
+						<Route
+							key={route._id}
+							path="/"
+							exact
+							render={() => <Page page={route}/>}
+						/>
+					);
+				}
+
 				return (
 					<Route
-						key={page._id}
-						path="/"
+						key={route._id}
+						path={route.path}
 						exact
-						render={() => <Page page={page} />}
+						render={() => <Page page={route}/>}
 					/>
 				);
 			}
 
-			return (
-				<Route
-					key={page._id}
-					path={"/" + page.title_slug}
-					exact
-					render={() => <Page page={page} />}
-				/>
-			);
+			return null;
 		});
-
-		const recipeRoutes = this.props.recipes.map(recipe => {
-			return (
-				<Route
-					key={recipe._id}
-					path={"/" + recipe.title_slug}
-					exact
-					render={() => <Page page={recipe} />}
-				/>
-			);
-		});
-
-		return pageRoutes.concat(recipeRoutes);
 	};
 
-	render = () => {
-		return <Router>{this.renderRoutes()}</Router>;
-	};
-}
-
-const mapStateToProps = state => {
-	return {
-		pages: state.pages,
-		recipes: state.recipes
-	};
+	return <Router>{renderRoutes()}</Router>;
 };
 
-export default connect(
-	mapStateToProps,
-	{}
-)(Routes);
+export default Routes;

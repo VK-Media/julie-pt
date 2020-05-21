@@ -7,6 +7,7 @@ import footerReducer from "./footerReducer";
 import menuReducer from "./menuReducer";
 import pricesReducer from "./pricesReducer";
 import recipesReducer from "./recipesReducer";
+import routesReducer from "./routesReducer";
 
 export default combineReducers({
 	pages: pagesReducer,
@@ -15,5 +16,6 @@ export default combineReducers({
 	showMenu: menuReducer,
 	prices: pricesReducer,
 	recipes: recipesReducer,
+	routes: routesReducer,
 	form: reduxFormReducer
 });

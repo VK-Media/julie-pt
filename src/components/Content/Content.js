@@ -13,6 +13,7 @@ import GreenBg from "./GreenBg/GreenBg";
 import Prices from "./Prices/Prices";
 import ContactForm from "./ContactForm/ContactForm";
 import RecipeDetails from "./RecipeDetails/RecipeDetails";
+import Recipes from "./Recipes/Recipes";
 
 export default ({ content }) => {
 	switch (content.component) {
@@ -47,6 +48,8 @@ export default ({ content }) => {
 			return <Button content={content} />;
 		case "prices":
 			return <Prices content={content} />;
+		case "recipes":
+			return <Recipes content={content} />;
 		case "contactForm":
 			return <ContactForm content={content} />;
 		case "recipeDetails":
