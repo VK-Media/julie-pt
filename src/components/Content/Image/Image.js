@@ -5,20 +5,12 @@ import "./Image.scss";
 
 export default ({ content }) => {
 	const renderImage = () => {
-		const imagePath = content.settings.image
-			? "https://admin.julie-pt.dk/" + content.settings.image.path
-			: null;
+		const imagePath = content.settings.image ? `https://admin.julie-pt.dk/${content.settings.image.path}` : null;
 
 		if (imagePath) {
-			const ratioArray = content.settings.ratio
-				? content.settings.ratio.split(":")
-				: null;
-			const ratio = !_.isEmpty(ratioArray)
-				? parseInt(ratioArray[1]) / parseInt(ratioArray[0])
-				: 16 / 9;
-			const title = content.settings.description
-				? content.settings.description
-				: null;
+			const ratioArray = content.settings.ratio ? content.settings.ratio.split(":") : null;
+			const ratio = !_.isEmpty(ratioArray) ? parseInt(ratioArray[1]) / parseInt(ratioArray[0]) : 16 / 9;
+			const title = content.settings.description ? content.settings.description : null;
 			const style = {
 				backgroundImage: `url('${imagePath}')`,
 				paddingBottom: ratio * 100 + "%"
