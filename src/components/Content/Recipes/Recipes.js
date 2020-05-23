@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import _, { find } from 'lodash'
+import { find } from 'lodash'
 import './Recipes.scss'
 import { NavLink } from 'react-router-dom'
 
@@ -8,24 +8,15 @@ const Recipes = ({ content }) => {
     const recipes = useSelector(state => state.recipes)
     const [searchWords, setSearchWords] = useState('')
     const [selectedCategories, setSelectedCategories] = useState([])
-    const [selectedRecipes, setSelectedRecipes] = useState([])
+    const [displayRecipes, setDisplayRecipes] = useState([])
 
     useEffect(() => {
-        const initialRecipes = content.settings.recipes.map(recipeData => {
-            return find(recipes, recipe => recipe._id === recipeData._id)
-        })
-
-        if (initialRecipes.length) {
-            setSelectedRecipes(initialRecipes)
-        }
-    }, [content, recipes])
+        setDisplayRecipes([...recipes])
+    }, [recipes])
 
     const searchRecipes = (searchWordsInput, categoriesInput) => {
-        const initialRecipes = content.settings.recipes.map(recipeData => {
-            return find(recipes, recipe => recipe._id === recipeData._id)
-        })
         const searchWordsArray = searchWordsInput.split(' ')
-        const matchingRecipes = initialRecipes.filter(recipe => {
+        const matchingRecipes = recipes.filter(recipe => {
             if (recipe) {
                 let containsSearchWords = true
                 let containsCategories = false
@@ -57,7 +48,7 @@ const Recipes = ({ content }) => {
             return false
         })
 
-        setSelectedRecipes(matchingRecipes)
+        setDisplayRecipes(matchingRecipes)
     }
 
     const renderCategories = (categories) => {
@@ -75,7 +66,7 @@ const Recipes = ({ content }) => {
     }
 
     const getImageUrl = (recipe) => {
-        const firstImage = _.find(recipe.content, element => element.component === 'image')
+        const firstImage = find(recipe.content, element => element.component === 'image')
         const image = firstImage ? firstImage.settings.image : null
 
         if (image) return 'https://admin.julie-pt.dk/' + image.path
@@ -164,7 +155,7 @@ const Recipes = ({ content }) => {
     const renderRecipes = () => {
         if (!content.settings.recipes) return null
 
-        const recipesElements = selectedRecipes.map(recipe => {
+        const recipesElements = displayRecipes.map(recipe => {
             if (recipe) {
                 return (
                     <NavLink key={recipe._id} className="recipe" to={`/opskrifter/${recipe.title_slug}`}>
