@@ -1,4 +1,4 @@
-import { TOGGLE_MENU } from '../actions/types'
+import { TOGGLE_MENU } from '../types'
 
 export default (state = false, action) => {
     switch (action.type) {

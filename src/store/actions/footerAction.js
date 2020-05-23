@@ -1,6 +1,5 @@
-import { singletons } from '../apis/cms'
-
-import { FETCH_FOOTER } from './types'
+import { singletons } from '../../apis/cms'
+import { FETCH_FOOTER } from '../types'
 
 export const fetchFooter = () => async dispatch => {
     let response = { data: {} }

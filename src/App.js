@@ -1,40 +1,23 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import ReactGA from "react-ga";
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchRecipes, fetchPages } from './store/effects'
+import { fetchFooter, fetchHeader, fetchPrices } from './store/actions'
+import './App.scss'
+import Routes from './routes'
 
-import {
-	fetchPages,
-	fetchHeader,
-	fetchFooter,
-	fetchPrices,
-	fetchRecipes
-} from "./actions";
-import "./App.scss";
-import Routes from "./routes";
+const App = () => {
+    const dispatch = useDispatch()
+    const pages = useSelector(state => state.pages)
 
-class App extends Component {
-	componentDidMount() {
-		this.props.fetchPages();
-		this.props.fetchHeader();
-		this.props.fetchFooter();
-		this.props.fetchPrices();
-		this.props.fetchRecipes();
+    useEffect(() => {
+        dispatch(fetchPages())
+        dispatch(fetchHeader())
+        dispatch(fetchFooter())
+        dispatch(fetchPrices())
+        dispatch(fetchRecipes())
+    }, [dispatch])
 
-		ReactGA.initialize("UA-143417544-1");
-	}
-
-	render() {
-		return this.props.pages ? <Routes /> : null;
-	}
+    return pages.length ? <Routes/> : null
 }
 
-const mapStateToProps = state => {
-	return {
-		pages: state.pages
-	};
-};
-
-export default connect(
-	mapStateToProps,
-	{ fetchPages, fetchHeader, fetchFooter, fetchPrices, fetchRecipes }
-)(App);
+export default App

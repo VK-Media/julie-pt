@@ -1,10 +1,8 @@
-import { collections } from '../apis/cms'
-import { FETCH_RECIPES } from './types'
+import { collections } from '../../apis/cms'
+import { fetchRecipesSuccess } from '../actions'
 
 export const fetchRecipes = () => async dispatch => {
-    let response = { data: { entries: {} } }
-
-    response = await collections.post('/recipes', {
+    const response = await collections.post('/recipes', {
             filter: { published: true }
         },
         {
@@ -15,5 +13,5 @@ export const fetchRecipes = () => async dispatch => {
         }
     )
 
-    dispatch({ type: FETCH_RECIPES, payload: response.data.entries })
+    dispatch(fetchRecipesSuccess(response.data.entries))
 }

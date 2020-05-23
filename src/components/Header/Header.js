@@ -6,7 +6,7 @@ import _ from 'lodash'
 
 import './Header.scss'
 
-import { toggleMenu } from '../../actions/'
+import { toggleMenu } from '../../store/actions/'
 
 const Header = ({ pages, header, toggleMenu, showMenu, landingpage, isScrolled }) => {
     const renderNavLinks = () => {
