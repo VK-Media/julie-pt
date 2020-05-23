@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Helmet } from 'react-helmet'
-import ReactGA from 'react-ga'
 
 import Header from '../Header/Header'
 import Footer from '../Footer/Footer'
@@ -17,8 +16,6 @@ class Page extends Component {
         }
 
         window.addEventListener('scroll', this.handleScroll);
-
-        ReactGA.pageview(this.props.page.title_slug)
     }
 
     componentWillUnmount = () => {

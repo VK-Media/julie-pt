@@ -1,8 +1,8 @@
-import { FETCH_PRICES } from '../actions/types'
+import { FETCH_PAGES } from '../types'
 
 export default (state = [], action) => {
     switch (action.type) {
-        case FETCH_PRICES:
+        case FETCH_PAGES:
             return action.payload
         default:
             return state
